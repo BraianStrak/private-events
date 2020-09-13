@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
     def new
-
+        @event = current_user.created_events.build
     end
 
     def create
@@ -9,6 +9,8 @@ class UsersController < ApplicationController
     end
 
     def show
-        
+        if user_signed_in? 
+            @created_events = current_user.created_events
+        end
     end
 end

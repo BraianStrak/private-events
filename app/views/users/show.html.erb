@@ -1,1 +1,17 @@
-<h1>Welcome to Users#show!</h1> <br>
+<div>
+
+    <h1>Welcome to Users#show!</h1> <br>
+
+    <%if user_signed_in?%>
+        <%unless @created_events.empty?%>
+            <% @created_events.each do | event | %>
+                <strong><%= event.title %><br></strong>
+                <small><%= event.body %><br></small>
+                <%=event.date%><br>
+            <%end%>
+        <%end%><br>
+    <%else%>
+        Please sign in to create events and view your created events
+    <%end%>
+
+</div>
