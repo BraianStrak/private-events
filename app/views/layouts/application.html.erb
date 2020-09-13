@@ -12,6 +12,18 @@
   <body>
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
+
+      <%unless user_signed_in?%>
+        You are not currently logged in: 
+        <%= link_to 'Sign In', new_user_session_path, class: "button is-info" %>
+        <%= link_to 'Sign Up', new_user_registration_path, class: "button is-info" %>
+        <br>
+      <%else%>
+        Signed in as user number: <strong><%=current_user.id%></strong> with <strong><%=current_user.email%></strong>
+        <br>
+        <%= link_to('Logout', destroy_user_session_path, method: :delete) %>        
+    
+      <%end%>
     <%= yield %>
   </body>
 </html>
