@@ -1,1 +1,5 @@
-welcome to Events#Show!
+welcome to Event#Show! A list of attendees to this event: 
+<%@event.attendees.each do |attendee| %>
+    <%=attendee.email%>
+    <br>
+<%end%>

@@ -11,6 +11,7 @@ class UsersController < ApplicationController
     def show
         if user_signed_in? 
             @created_events = current_user.created_events
+            @attending_events = current_user.attended_events
         end
     end
 end

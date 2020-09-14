@@ -4,9 +4,19 @@
 
     <%if user_signed_in?%>
         <%= link_to 'New Event', new_event_path, class: "btn btn-primary" %><br>
-        <br>
-        <%unless @created_events.empty?%>
+        Created the following events:<br>
+        <%unless @created_events.nil?%>
             <% @created_events.each do | event | %>
+                <strong><%= event.title %><br></strong>
+                <small><%= event.body %><br></small>
+                <br>
+            <%end%>
+        <%end%>
+
+        <br><br>
+        Attending the following events: <br>
+        <%unless @attended_events.nil?%>
+            <% @attended_events.each do | event | %>
                 <strong><%= event.title %><br></strong>
                 <small><%= event.body %><br></small>
                 <br>
