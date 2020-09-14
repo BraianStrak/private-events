@@ -1,0 +1,8 @@
+<h1>welcome to events#index! A view of all events!</h1>
+<%unless @events.empty?%>
+    <% @events.each do | event | %>
+        <strong><%= event.title %><br></strong>
+        <small><%= event.body %><br></small>
+        <br>
+    <%end%>
+<%end%>
